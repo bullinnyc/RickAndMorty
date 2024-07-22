@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  RickAndMorty
+
+  Created by Dmitry Kononchuk on 26.07.2024.
+  Copyright © 2024 Dmitry Kononchuk. All rights reserved.
+*/
+
+// Common.
+"error" = "Error";
+"loading" = "Loading %@ %%";
+"retry" = "Retry";
+
+// Network.
+"badURL" = "Bad URL or nil.";
+"badResponse" = "Invalid response.";
+"noDecodedData" = "The data couldn’t be read because it isn’t in the correct format.";
+
+// Character.
+"characters" = "Characters";

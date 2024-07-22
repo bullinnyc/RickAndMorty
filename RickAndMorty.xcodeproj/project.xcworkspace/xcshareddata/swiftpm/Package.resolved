@@ -1,0 +1,24 @@
+{
+  "originHash" : "56d3ca964f98e16d08cc19bc81d40cf7a7e5fe9bbb705e13f3b0ee2123b10aff",
+  "pins" : [
+    {
+      "identity" : "cachedasyncimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bullinnyc/CachedAsyncImage",
+      "state" : {
+        "revision" : "cb253e111528c082381af54b67dab7a15eefde16",
+        "version" : "2.6.0"
+      }
+    },
+    {
+      "identity" : "toast",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bullinnyc/Toast",
+      "state" : {
+        "revision" : "fd3b58ef66a37a05621146f27dd7df94aaf8afa4",
+        "version" : "1.0.1"
+      }
+    }
+  ],
+  "version" : 3
+}

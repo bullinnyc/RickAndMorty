@@ -6,23 +6,15 @@
 //  Copyright © 2024 Dmitry Kononchuk. All rights reserved.
 //
 
-import SwiftUI
+import UIKit
 import Toast
 
 extension ToastStyle {
     // MARK: - Public Properties
     
     static var lightAndDark: ToastStyle {
-        let isDark = UIWindow.userInterfaceStyle == .dark
         let opacity = 0.98
-        
-        let textColor: Color = isDark
-            ? .dark.opacity(opacity)
-            : .light.opacity(opacity)
-        
-        let backgroundColor: Color = isDark
-            ? .light.opacity(opacity)
-            : .dark.opacity(opacity)
+        let textColor = UIColor.lightOnDark.withAlphaComponent(opacity)
         
         return ToastStyle(
             titleTextColor: textColor,
@@ -33,7 +25,7 @@ extension ToastStyle {
             messageTextAlignment: .leading,
             messageFont: .seravek(size: 16),
             messageLineLimit: 0,
-            backgroundColor: backgroundColor,
+            backgroundColor: UIColor.darkOnLight.withAlphaComponent(opacity),
             cornerRadius: 21,
             imageAlignment: .trailing,
             isImageAnimation: false

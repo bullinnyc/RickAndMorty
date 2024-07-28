@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/bullinnyc/Toast",
       "state" : {
-        "revision" : "fd3b58ef66a37a05621146f27dd7df94aaf8afa4",
-        "version" : "1.0.1"
+        "revision" : "1b47dfe84bc130b8cc58797fdc9c6aa7b56fcc5f",
+        "version" : "1.1.0"
       }
     }
   ],

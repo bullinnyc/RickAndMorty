@@ -41,7 +41,6 @@
 		DBBFF4102C54BFC6000A41A4 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFF40F2C54BFC6000A41A4 /* Loading.swift */; };
 		DBBFF4122C54C054000A41A4 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBFF4112C54C054000A41A4 /* Extension+View.swift */; };
 		DBC204EA2C5625F0009EB279 /* CharacterRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC204E92C5625F0009EB279 /* CharacterRowView.swift */; };
-		DBC204EC2C5634C3009EB279 /* Extension+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC204EB2C5634C3009EB279 /* Extension+UIWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,7 +78,6 @@
 		DBBFF40F2C54BFC6000A41A4 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		DBBFF4112C54C054000A41A4 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
 		DBC204E92C5625F0009EB279 /* CharacterRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRowView.swift; sourceTree = "<group>"; };
-		DBC204EB2C5634C3009EB279 /* Extension+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIWindow.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,7 +274,6 @@
 		DB700A582C4D64DB008AF7E0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DBC204EB2C5634C3009EB279 /* Extension+UIWindow.swift */,
 				DB4F6BE82C55159400C2109B /* Extension+DispatchQueue.swift */,
 				DB700A592C4D665A008AF7E0 /* Extension+Publisher.swift */,
 				DB8775EC2C51EE1E00B72707 /* Extension+Optional.swift */,
@@ -441,7 +438,6 @@
 				DB700A5A2C4D665A008AF7E0 /* Extension+Publisher.swift in Sources */,
 				DB8776032C5273EE00B72707 /* LoadingState.swift in Sources */,
 				DB700A3D2C4C0DF3008AF7E0 /* CharactersViewModel.swift in Sources */,
-				DBC204EC2C5634C3009EB279 /* Extension+UIWindow.swift in Sources */,
 				DBBFF40D2C53EE5A000A41A4 /* Extension+Font.swift in Sources */,
 				DB700A092C4BC6DF008AF7E0 /* NetworkManager.swift in Sources */,
 				DB700A0F2C4BD733008AF7E0 /* Network.swift in Sources */,
@@ -693,7 +689,7 @@
 			repositoryURL = "https://github.com/bullinnyc/Toast";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 1.0.1;
+				minimumVersion = 1.1.0;
 			};
 		};
 		DB8775E92C515A2400B72707 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */ = {

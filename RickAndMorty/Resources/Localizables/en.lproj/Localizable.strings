@@ -8,6 +8,7 @@
 
 // Common.
 "error" = "Error";
+"somethingWentWrong" = "Something went wrong.";
 "loading" = "Loading %@ %%";
 "retry" = "Retry";
 

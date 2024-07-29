@@ -76,7 +76,7 @@ extension CharactersView {
                 }
             }
             .navigationTitle(Localizable.localized("characters"))
-            .onReceive(charactersViewModel.$toastError) { newValue in
+            .onReceive(charactersViewModel.$toastMessage) { newValue in
                 guard let newValue = newValue else { return }
                 
                 toast.show(

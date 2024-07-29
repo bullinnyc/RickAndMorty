@@ -19,7 +19,7 @@ final class CharactersViewModel: ObservableObject {
     @Published private(set) var isLoading = false
     @Published private(set) var isBottomLoading = false
     @Published private(set) var error: String?
-    @Published private(set) var toastError: String?
+    @Published private(set) var toastMessage: String?
     
     // MARK: - Private Properties
     
@@ -75,12 +75,23 @@ final class CharactersViewModel: ObservableObject {
                     Task { @MainActor [weak self] in
                         guard let self = self else { return }
                         
-                        if self.isFirstPage {
+                        let errorMessage: String
+                        
+                        switch networkError {
+                        case .badURL, .transportError, .badResponse:
+                            errorMessage = networkError.message
+                        case .noDecodedData:
+                            errorMessage = Localizable.localized(
+                                "somethingWentWrong"
+                            )
+                        }
+                        
+                        if isFirstPage {
                             self.isLoading = false
-                            self.error = networkError.message
+                            self.error = errorMessage
                         } else {
                             self.isBottomLoading = false
-                            self.toastError = networkError.message
+                            self.toastMessage = errorMessage
                         }
                     }
                 }
@@ -110,7 +121,12 @@ final class CharactersViewModel: ObservableObject {
             finish(data)
         } catch {
             if let networkError = error as? NetworkError {
-                toastError = networkError.message
+                switch networkError {
+                case .badURL, .transportError, .badResponse:
+                    toastMessage = networkError.message
+                case .noDecodedData:
+                    toastMessage = Localizable.localized("somethingWentWrong")
+                }
             }
         }
     }
@@ -125,7 +141,7 @@ final class CharactersViewModel: ObservableObject {
     
     private func finish(_ data: CharacterEntity) {
         error = nil
-        toastError = nil
+        toastMessage = nil
         page += 1
         isCanLoadNextPage = сharacterResultEntities.count != data.info.count
     }

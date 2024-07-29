@@ -13,19 +13,16 @@ extension ToastStyle {
     // MARK: - Public Properties
     
     static var lightAndDark: ToastStyle {
-        let opacity = 0.98
-        let textColor = UIColor.lightOnDark.withAlphaComponent(opacity)
-        
-        return ToastStyle(
-            titleTextColor: textColor,
+        ToastStyle(
+            titleTextColor: .tomato,
             titleTextAlignment: .leading,
             titleFont: .seravekMedium(size: 24),
             titleLineLimit: 1,
-            messageTextColor: textColor,
+            messageTextColor: UIColor.lightOnDark,
             messageTextAlignment: .leading,
             messageFont: .seravek(size: 16),
             messageLineLimit: 0,
-            backgroundColor: UIColor.darkOnLight.withAlphaComponent(opacity),
+            backgroundColor: UIColor.darkOnLight.withAlphaComponent(0.98),
             cornerRadius: 21,
             imageAlignment: .trailing,
             isImageAnimation: false

@@ -10,6 +10,7 @@ import Foundation
 
 protocol Injectable {
     var network: NetworkProtocol { get }
+    func getCharacterUseCase() -> CharacterUseCase
 }
 
 final class Injection: Injectable {

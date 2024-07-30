@@ -26,7 +26,7 @@ struct CharactersView: View {
                 ErrorView(
                     message: error,
                     isLoading: charactersViewModel.isLoading,
-                    onRetry: charactersViewModel.fetchCharacter
+                    onRetry: fetchCharacter
                 )
             } else {
                 characters(data: charactersViewModel.сharacterResultEntities)
@@ -36,7 +36,19 @@ struct CharactersView: View {
                     )
             }
         }
-        .onAppear(perform: charactersViewModel.fetchCharacter)
+        .onAppear(perform: fetchCharacter)
+    }
+    
+    // MARK: - Private Methods
+    
+    private func fetchCharacter() {
+        charactersViewModel.fetchCharacter()
+    }
+    
+    private func onScrolledAtBottom(_ entity: CharacterResultEntity) {
+        if charactersViewModel.сharacterResultEntities.last == entity {
+            fetchCharacter()
+        }
     }
 }
 
@@ -57,7 +69,7 @@ extension CharactersView {
                                 name: value.name
                             )
                             .onAppear {
-                                charactersViewModel.onScrolledAtBottom(value)
+                                onScrolledAtBottom(value)
                             }
                         }
                     }

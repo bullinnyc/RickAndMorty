@@ -60,13 +60,7 @@ final class CharactersViewModel: ObservableObject {
             .handleEvents(
                 receiveSubscription: { _ in
                     Task { @MainActor [weak self] in
-                        guard let self = self else { return }
-                        
-                        if self.isFirstPage {
-                            self.isLoading = true
-                        } else {
-                            self.isBottomLoading = true
-                        }
+                        self?.setLoading(with: true)
                     }
                 }
             )
@@ -75,24 +69,15 @@ final class CharactersViewModel: ObservableObject {
                     Task { @MainActor [weak self] in
                         guard let self = self else { return }
                         
-                        let errorMessage: String
+                        let errorMessage = self.getErrorMessage(networkError)
                         
-                        switch networkError {
-                        case .badURL, .transportError, .badResponse:
-                            errorMessage = networkError.message
-                        case .noDecodedData:
-                            errorMessage = Localizable.localized(
-                                "somethingWentWrong"
-                            )
-                        }
-                        
-                        if isFirstPage {
-                            self.isLoading = false
+                        if self.isFirstPage {
                             self.error = errorMessage
                         } else {
-                            self.isBottomLoading = false
                             self.toastMessage = errorMessage
                         }
+                        
+                        self.setLoading(with: false)
                     }
                 }
                 
@@ -102,9 +87,8 @@ final class CharactersViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] data in
                 self?.сharacterResultEntities += data.results
-                self?.isLoading = false
-                self?.isBottomLoading = false
-                self?.finish(data)
+                self?.setLoading(with: false)
+                self?.finish(with: data.info.count)
             }
             .store(in: &cancellables)
     }
@@ -118,31 +102,37 @@ final class CharactersViewModel: ObservableObject {
             
             сharacterResultEntities = data.results
             page = 1
-            finish(data)
+            finish(with: data.info.count)
         } catch {
             if let networkError = error as? NetworkError {
-                switch networkError {
-                case .badURL, .transportError, .badResponse:
-                    toastMessage = networkError.message
-                case .noDecodedData:
-                    toastMessage = Localizable.localized("somethingWentWrong")
-                }
+                toastMessage = getErrorMessage(networkError)
             }
-        }
-    }
-    
-    func onScrolledAtBottom(_ entity: CharacterResultEntity) {
-        if сharacterResultEntities.last == entity {
-            fetchCharacter()
         }
     }
     
     // MARK: - Private Methods
     
-    private func finish(_ data: CharacterEntity) {
+    private func setLoading(with value: Bool) {
+        if isFirstPage {
+            isLoading = value
+        } else {
+            isBottomLoading = value
+        }
+    }
+    
+    private func getErrorMessage(_ networkError: NetworkError) -> String {
+        switch networkError {
+        case .badURL, .transportError, .badResponse:
+            return networkError.message
+        case .noDecodedData:
+            return Localizable.localized("somethingWentWrong")
+        }
+    }
+    
+    private func finish(with count: Int) {
         error = nil
         toastMessage = nil
         page += 1
-        isCanLoadNextPage = сharacterResultEntities.count != data.info.count
+        isCanLoadNextPage = сharacterResultEntities.count != count
     }
 }

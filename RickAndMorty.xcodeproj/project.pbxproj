@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB23D9F52C68B96B005B5BB5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DB23D9EF2C68AEB1005B5BB5 /* README.md */; };
 		DB4F6BE92C55159400C2109B /* Extension+DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F6BE82C55159400C2109B /* Extension+DispatchQueue.swift */; };
 		DB4F6BEE2C55281500C2109B /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = DB4F6BED2C55281500C2109B /* Toast */; };
 		DB4F6BF02C554B0600C2109B /* Extension+ToastStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F6BEF2C554B0600C2109B /* Extension+ToastStyle.swift */; };
@@ -44,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB23D9EF2C68AEB1005B5BB5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DB23D9F32C68B886005B5BB5 /* demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo.png; sourceTree = "<group>"; };
 		DB4F6BE82C55159400C2109B /* Extension+DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+DispatchQueue.swift"; sourceTree = "<group>"; };
 		DB4F6BEF2C554B0600C2109B /* Extension+ToastStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ToastStyle.swift"; sourceTree = "<group>"; };
 		DB7009E22C4BC30A008AF7E0 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +99,8 @@
 		DB7009D92C4BC30A008AF7E0 = {
 			isa = PBXGroup;
 			children = (
+				DB23D9F32C68B886005B5BB5 /* demo.png */,
+				DB23D9EF2C68AEB1005B5BB5 /* README.md */,
 				DB700A632C4DED46008AF7E0 /* .gitignore */,
 				DB7009E42C4BC30A008AF7E0 /* RickAndMorty */,
 				DB7009E32C4BC30A008AF7E0 /* Products */,
@@ -410,6 +415,7 @@
 			files = (
 				DB7009EE2C4BC30B008AF7E0 /* Preview Assets.xcassets in Resources */,
 				DBBFF4092C53DA27000A41A4 /* Localizable.strings in Resources */,
+				DB23D9F52C68B96B005B5BB5 /* README.md in Resources */,
 				DB700A642C4DED46008AF7E0 /* .gitignore in Resources */,
 				DB7009EA2C4BC30B008AF7E0 /* Assets.xcassets in Resources */,
 			);
